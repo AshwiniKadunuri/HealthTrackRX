@@ -1,0 +1,21 @@
+*** Variables ***
+${checkbox.result_review.select_first_requisition}    xpath:(//input[@type='checkbox' and @name='selection'])[1]
+${checkbox.result_review.select_second_requisition}    xpath:(//input[@type='checkbox' and @name='selection'])[2]
+${button.result_review.tool_bar.cross_tab}    xpath://div[@title='Cross Tab']//div[@class='toolbar-icon-circle']
+${button.result_review.tool_bar.cross_tab.raw_result}    xpath://div[@title="Raw Result 25"]//following-sibling::div
+${message.result_review.raw_result_value}    xpath://div[text()='Changed the raw result value to 25 for all empty results']
+${button.result_review.sub_menu_options}    xpath://button[@type="button"]//child::div//following-sibling::div//span[text()="replaceText"]
+${label.result_review.sample_id}    (//tbody[@class='grid_body']//tr//td[@style='white-space: nowrap'][2])[replaceText]
+${button.select_tool-bar_grid_buttons}    //div[@title="replaceText"]//div[@class="toolbar-icon-circle"]
+${title.result_review.sent_back_to_accessioning}    xpath://div[contains(@class,"caption-title") and text()="Sent back to Accessioning"]
+${button.result_review.sent_back_to_accesioning.clear_results_and_send_back}    xpath://div[text()="Clear Results and Send Back"]
+${message.result_review.no_record_found}    xpath://div[text()="No Records Found"]
+${message.result_review.start_processing}    //div[@class="batch-parent"]//h4[text()="replaceText"]
+${button.maximize_window}    xpath://div[@class="lims-modal-caption-maximize-button"]
+${textbox.results_review.print_labels.label_template}    xpath://div[text()="Label Template"]//preceding-sibling::input
+${textbox.results_review.searchbar}    //input[@class="search_field2 span"]
+${get-id.result_review.pending_results.first_requisition_sample-id}    (//tbody[@class='grid_body']//tr//td[contains(@style,'white-space: nowrap')][2])[1]
+${button.result_review.pending_results.requisition_hamburger.validity_rejection.reject_dropdown_arrow}    xpath://div[@title='Reject']//ancestor::div[@class='lims-dropdown-header']//div[@class='arrow']
+${option.result_review.pending_results.requisition_hamburger.validity_rejection.reject_dropdown_value}    xpath://div[@title='Reject']//ancestor::div[@class='lims-dropdown-parent noSelect']//div[text()='replaceText']
+${frame.result_review.pending_results.requisition_hamburger.validity_rejection.reason}    //iframe[contains(@id,"rejection_form_comment_ifr")]
+${icon.result_review.pending_results.requisition.validity_rejected_icon}    //span[@class='icon icon-blue icon-validity-cancel']

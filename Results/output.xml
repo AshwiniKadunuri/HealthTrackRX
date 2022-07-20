@@ -1,0 +1,1963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.8.10 on win32)" generated="20220720 12:41:30.947" rpa="false" schemaversion="3">
+<suite id="s1" name="Healthtrackrx-auto-tests" source="D:\Healthtrackrx-auto-tests">
+<suite id="s1-s1" name="KeywordTestcases" source="D:\Healthtrackrx-auto-tests\KeywordTestcases">
+<kw name="Create Directories" library="common" type="SETUP">
+<kw name="Create Screenshot Directory" library="common">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Create Directory</arg>
+<arg>${EXECDIR}/Screenshots</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${EXECDIR}/Screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20220720 12:41:31.693" level="INFO" html="true">Directory '&lt;a href="file://D:\Healthtrackrx-auto-tests\Screenshots"&gt;D:\Healthtrackrx-auto-tests\Screenshots&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20220720 12:41:31.693" endtime="20220720 12:41:31.693"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:31.693" endtime="20220720 12:41:31.694"/>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${EXECDIR}/Screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20220720 12:41:31.694" endtime="20220720 12:41:31.695"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:31.692" endtime="20220720 12:41:31.695"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:31.692" endtime="20220720 12:41:31.695"/>
+</kw>
+<suite id="s1-s1-s1" name="Accesioning Suite" source="D:\Healthtrackrx-auto-tests\KeywordTestcases\Accesioning Suite.robot">
+<test id="s1-s1-s1-t1" name="AC_039 Tracking Number Length Limitation with Invalid Data(9100151)." line="552">
+<kw name="Log" library="BuiltIn">
+<arg>Read test data from excel file</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:31.726" level="INFO">Read test data from excel file</msg>
+<status status="PASS" starttime="20220720 12:41:31.726" endtime="20220720 12:41:31.726"/>
+</kw>
+<kw name="Read TestData From Excel" library="common">
+<var>${testdata}</var>
+<arg>AC_039</arg>
+<arg>Accesioning</arg>
+<doc>Read TestData from excel file for required data.</doc>
+<kw name="Get Ms Excel Row Values Into Dictionary Based On Key" library="CustomLibrary">
+<var>${test_data}</var>
+<arg>${TESTDATA_FOLDER}/TestData.xls</arg>
+<arg>${testcaseid}</arg>
+<arg>${sheet_name}</arg>
+<doc>Returns the dictionary of values given row in the MS Excel file</doc>
+<msg timestamp="20220720 12:41:31.735" level="INFO">${test_data} = {'TestCaseName': 'AC_039', 'track-id': '9100151', 'requisition_checkbox_count': '1'}</msg>
+<status status="PASS" starttime="20220720 12:41:31.727" endtime="20220720 12:41:31.735"/>
+</kw>
+<msg timestamp="20220720 12:41:31.736" level="INFO">${testdata} = {'TestCaseName': 'AC_039', 'track-id': '9100151', 'requisition_checkbox_count': '1'}</msg>
+<status status="PASS" starttime="20220720 12:41:31.726" endtime="20220720 12:41:31.736"/>
+</kw>
+<kw name="Read TestData From Excel" library="common">
+<var>${environment_data}</var>
+<arg>Chrome</arg>
+<arg>QA_environment</arg>
+<doc>Read TestData from excel file for required data.</doc>
+<kw name="Get Ms Excel Row Values Into Dictionary Based On Key" library="CustomLibrary">
+<var>${test_data}</var>
+<arg>${TESTDATA_FOLDER}/TestData.xls</arg>
+<arg>${testcaseid}</arg>
+<arg>${sheet_name}</arg>
+<doc>Returns the dictionary of values given row in the MS Excel file</doc>
+<msg timestamp="20220720 12:41:31.745" level="INFO">${test_data} = {'Environment': 'Chrome', 'Browser_name': 'Chrome', 'Username': 'prakash.kamma', 'Password': 'QZhtrx@123', 'Url': 'https://qa.healthtrackrx.com/qa/', 'InvalidUsername': 'prakash', 'InvalidPassword': '...</msg>
+<status status="PASS" starttime="20220720 12:41:31.737" endtime="20220720 12:41:31.745"/>
+</kw>
+<msg timestamp="20220720 12:41:31.745" level="INFO">${environment_data} = {'Environment': 'Chrome', 'Browser_name': 'Chrome', 'Username': 'prakash.kamma', 'Password': 'QZhtrx@123', 'Url': 'https://qa.healthtrackrx.com/qa/', 'InvalidUsername': 'prakash', 'InvalidPassword': '...</msg>
+<status status="PASS" starttime="20220720 12:41:31.736" endtime="20220720 12:41:31.745"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 1: Launch HealthTrack Rx URL.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:31.746" level="INFO">Test Step 1: Launch HealthTrack Rx URL.</msg>
+<status status="PASS" starttime="20220720 12:41:31.746" endtime="20220720 12:41:31.746"/>
+</kw>
+<kw name="Launch Browser" library="common">
+<arg>${environment_data}[Browser_name]</arg>
+<arg>${environment_data}[Url]</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser_name}'=='Chrome' or '${browser_name}'=='chrome' or '${browser_name}'=='gc'</arg>
+<arg>Open Browser</arg>
+<arg>${url}</arg>
+<arg>gc</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220720 12:41:31.747" level="INFO">Opening browser 'gc' to base url 'https://qa.healthtrackrx.com/qa/'.</msg>
+<status status="PASS" starttime="20220720 12:41:31.746" endtime="20220720 12:41:37.184"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:31.746" endtime="20220720 12:41:37.185"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser_name}'=='Firefox' or '${browser_name}'=='firefox' or '${browser_name}'=='ff'</arg>
+<arg>Open Browser</arg>
+<arg>${url}</arg>
+<arg>Firefox</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220720 12:41:37.187" endtime="20220720 12:41:37.188"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220720 12:41:37.189" endtime="20220720 12:41:37.312"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:31.746" endtime="20220720 12:41:37.313"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>User is Navigated to HealthTrack Rx Application with ${environment_data}[Url]-URL in ${environment_data}[Browser_name]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:37.316" level="INFO">User is Navigated to HealthTrack Rx Application with https://qa.healthtrackrx.com/qa/-URL in Chrome</msg>
+<status status="PASS" starttime="20220720 12:41:37.315" endtime="20220720 12:41:37.316"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 1: \ Enter Credentials and Sign-In. ${USERNAME} as Username and ${PASSWORD} as Password</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:37.318" level="INFO">Test Step 1:  Enter Credentials and Sign-In. prakash.kamma as Username and QZhtrx@123 as Password</msg>
+<status status="PASS" starttime="20220720 12:41:37.317" endtime="20220720 12:41:37.318"/>
+</kw>
+<kw name="Login To Application" library="common">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Login page is displayed</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:37.322" level="INFO">Login page is displayed</msg>
+<status status="PASS" starttime="20220720 12:41:37.320" endtime="20220720 12:41:37.323"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.textbox.username}</arg>
+<arg>${user_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220720 12:41:37.327" level="INFO">Typing text 'prakash.kamma' into text field '//input[contains(@name,'username')]'.</msg>
+<status status="PASS" starttime="20220720 12:41:37.324" endtime="20220720 12:41:37.465"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${user_name} is entered in ${login.textbox.username} textbox</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:37.470" level="INFO">prakash.kamma is entered in //input[contains(@name,'username')] textbox</msg>
+<status status="PASS" starttime="20220720 12:41:37.468" endtime="20220720 12:41:37.470"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.textbox.password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220720 12:41:37.472" level="INFO">Typing text 'QZhtrx@123' into text field '//input[contains(@name,'password')]'.</msg>
+<status status="PASS" starttime="20220720 12:41:37.470" endtime="20220720 12:41:37.590"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${password} is entered in ${login.textbox.password} textbox</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:37.593" level="INFO">QZhtrx@123 is entered in //input[contains(@name,'password')] textbox</msg>
+<status status="PASS" starttime="20220720 12:41:37.591" endtime="20220720 12:41:37.593"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${login.button.signin}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Sign in button is not displayed</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:41:37.594" endtime="20220720 12:41:37.625"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220720 12:41:39.637" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220720 12:41:37.627" endtime="20220720 12:41:39.637"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login.button.signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220720 12:41:39.640" level="INFO">Clicking element '//div[@class='button-text']'.</msg>
+<status status="PASS" starttime="20220720 12:41:39.639" endtime="20220720 12:41:39.700"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${homescreen.label.homepage.client_portal_menu}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Login failed. Home page is not displayed</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${homescreen.label.homepage.client_portal_menu}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Login failed. Home page is not displayed</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:41:39.704" endtime="20220720 12:41:42.824"/>
+</kw>
+<msg timestamp="20220720 12:41:42.824" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20220720 12:41:39.700" endtime="20220720 12:41:42.824"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${status}==False</arg>
+<arg>Fail</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220720 12:41:42.825" endtime="20220720 12:41:42.825"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${pagetitle.homepage}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220720 12:41:42.826" endtime="20220720 12:41:42.838"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:41:42.942" level="INFO" html="true">&lt;a href="screenshot_1566.jpg"&gt;&lt;img src="screenshot_1566.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:41:42.838" endtime="20220720 12:41:42.942"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:37.319" endtime="20220720 12:41:42.943"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>User is Navigated to Home Page</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:42.943" level="INFO">User is Navigated to Home Page</msg>
+<status status="PASS" starttime="20220720 12:41:42.943" endtime="20220720 12:41:42.943"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 2 : Goto Quick Menu.Move to Accessioning.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:42.944" level="INFO">Test Step 2 : Goto Quick Menu.Move to Accessioning.</msg>
+<status status="PASS" starttime="20220720 12:41:42.944" endtime="20220720 12:41:42.944"/>
+</kw>
+<kw name="Navigate To Main Menu" library="common">
+<arg>Accessioning</arg>
+<kw name="Comment" library="BuiltIn">
+<arg>Navigate to ${menu} page</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:41:42.945" endtime="20220720 12:41:42.945"/>
+</kw>
+<kw name="Update Dynamic Value" library="common">
+<var>${button.homepage.select_menu.new}</var>
+<arg>${button.homepage.select_menu}</arg>
+<arg>${menu}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:41:42.947" level="INFO">${xpath} = xpath://div[@class='menu-title' and text()='Accessioning']</msg>
+<status status="PASS" starttime="20220720 12:41:42.946" endtime="20220720 12:41:42.947"/>
+</kw>
+<msg timestamp="20220720 12:41:42.947" level="INFO">${button.homepage.select_menu.new} = xpath://div[@class='menu-title' and text()='Accessioning']</msg>
+<status status="PASS" starttime="20220720 12:41:42.946" endtime="20220720 12:41:42.947"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Wait Until Element Is Visible</arg>
+<arg>${button.homepage.select_menu.new}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:41:42.947" endtime="20220720 12:41:42.949"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>4</arg>
+<status status="PASS" starttime="20220720 12:41:42.949" endtime="20220720 12:41:46.951"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.homepage.select_menu.new}</arg>
+<status status="PASS" starttime="20220720 12:41:46.951" endtime="20220720 12:41:51.862"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:41:52.031" level="INFO" html="true">&lt;a href="screenshot_1567.jpg"&gt;&lt;img src="screenshot_1567.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:41:51.863" endtime="20220720 12:41:52.031"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:42.945" endtime="20220720 12:41:52.032"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"Accessioning Pending" data page is displayed.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:52.032" level="INFO">"Accessioning Pending" data page is displayed.</msg>
+<status status="PASS" starttime="20220720 12:41:52.032" endtime="20220720 12:41:52.032"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Handle Alert - "We'd like to show you notifications for the latest news and updates."</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:52.036" level="INFO">Handle Alert - "We'd like to show you notifications for the latest news and updates."</msg>
+<status status="PASS" starttime="20220720 12:41:52.034" endtime="20220720 12:41:52.036"/>
+</kw>
+<kw name="Refuse Alert for Notifications of News" library="common">
+<kw name="Comment" library="BuiltIn">
+<arg>Refuse Alert Popup of Notifications of News and Updates</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:41:52.039" endtime="20220720 12:41:52.041"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${button.homepage.refusealert}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>refuse_alert is not visible after waiting ${LONG_WAIT} seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:41:52.042" endtime="20220720 12:41:53.483"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.homepage.refusealert}</arg>
+<status status="PASS" starttime="20220720 12:41:53.484" endtime="20220720 12:41:53.545"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${button.homepage.refusealert}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.547" level="INFO">"xpath://a[@id='pushActionRefuse']" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:41:53.546" endtime="20220720 12:41:53.547"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:41:53.695" level="INFO" html="true">&lt;a href="screenshot_1568.jpg"&gt;&lt;img src="screenshot_1568.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:41:53.548" endtime="20220720 12:41:53.695"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:52.037" endtime="20220720 12:41:53.695"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Refused Alert for Notifications of News</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.696" level="INFO">Refused Alert for Notifications of News</msg>
+<status status="PASS" starttime="20220720 12:41:53.696" endtime="20220720 12:41:53.697"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 3: Select the Requisition</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.697" level="INFO">Test Step 3: Select the Requisition</msg>
+<status status="PASS" starttime="20220720 12:41:53.697" endtime="20220720 12:41:53.697"/>
+</kw>
+<kw name="Select Multiple Requisitions Checkbox" library="application_keywords">
+<arg>${testdata}[requisition_checkbox_count]</arg>
+<doc>This Keyword is used to Select Requisition Checkboxes by taking Sample-id Value into the Checkbox Locator. It also provides the RID_Value from Requisition for Verification purpose.</doc>
+<kw name="Create List" library="BuiltIn">
+<var>@{home_page_requisition_id}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220720 12:41:53.709" level="INFO">@{home_page_requisition_id} = [ ]</msg>
+<status status="PASS" starttime="20220720 12:41:53.709" endtime="20220720 12:41:53.709"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{updated_sample_id}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220720 12:41:53.710" level="INFO">@{updated_sample_id} = [ ]</msg>
+<status status="PASS" starttime="20220720 12:41:53.710" endtime="20220720 12:41:53.710"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${key}</var>
+<value>0</value>
+<value>${Count_Value}</value>
+<iter>
+<var name="${key}">0</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${key}</var>
+<arg>${key}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220720 12:41:53.711" level="INFO">${key} = 1</msg>
+<status status="PASS" starttime="20220720 12:41:53.711" endtime="20220720 12:41:53.711"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${updated_key}</var>
+<arg>${key}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220720 12:41:53.712" level="INFO">${updated_key} = 1</msg>
+<status status="PASS" starttime="20220720 12:41:53.711" endtime="20220720 12:41:53.712"/>
+</kw>
+<kw name="Update Dynamic Value" library="common">
+<var>${label.accesioning.details.sample_id.new}</var>
+<arg>${label.accesioning.details.sample_id}</arg>
+<arg>${updated_key}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:41:53.714" level="INFO">${xpath} = xpath:(//tbody[@class='grid_body']//tr//td[contains(@style,'white-space: nowrap')][4])[1]</msg>
+<status status="PASS" starttime="20220720 12:41:53.714" endtime="20220720 12:41:53.714"/>
+</kw>
+<msg timestamp="20220720 12:41:53.719" level="INFO">${label.accesioning.details.sample_id.new} = xpath:(//tbody[@class='grid_body']//tr//td[contains(@style,'white-space: nowrap')][4])[1]</msg>
+<status status="PASS" starttime="20220720 12:41:53.713" endtime="20220720 12:41:53.719"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${sample_id_attribute}</var>
+<arg>${label.accesioning.details.sample_id.new}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220720 12:41:53.774" level="INFO">${sample_id_attribute} = 251643</msg>
+<status status="PASS" starttime="20220720 12:41:53.720" endtime="20220720 12:41:53.775"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Sample_Id-"${Sample_id_attribute}" is Received</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.776" level="INFO">Sample_Id-"251643" is Received</msg>
+<status status="PASS" starttime="20220720 12:41:53.775" endtime="20220720 12:41:53.776"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{Sample_Id}</var>
+<arg>${sample_id_attribute}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220720 12:41:53.776" level="INFO">@{Sample_Id} = [ 251643 ]</msg>
+<status status="PASS" starttime="20220720 12:41:53.776" endtime="20220720 12:41:53.777"/>
+</kw>
+<kw name="Update Dynamic Value" library="common">
+<var>${label.accesioning.details.req_id_for_attribute.new}</var>
+<arg>${label.accesioning.details.req_id_for_attribute}</arg>
+<arg>${updated_key}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:41:53.778" level="INFO">${xpath} = (//tbody[@class='grid_body']//tr//td[contains(@style,'white-space: nowrap')][5])[1]</msg>
+<status status="PASS" starttime="20220720 12:41:53.778" endtime="20220720 12:41:53.778"/>
+</kw>
+<msg timestamp="20220720 12:41:53.778" level="INFO">${label.accesioning.details.req_id_for_attribute.new} = (//tbody[@class='grid_body']//tr//td[contains(@style,'white-space: nowrap')][5])[1]</msg>
+<status status="PASS" starttime="20220720 12:41:53.777" endtime="20220720 12:41:53.778"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${RID_attribute}</var>
+<arg>${label.accesioning.details.req_id_for_attribute.new}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220720 12:41:53.817" level="INFO">${RID_attribute} = 250717</msg>
+<status status="PASS" starttime="20220720 12:41:53.778" endtime="20220720 12:41:53.817"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${RID_attribute}" is Received</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.820" level="INFO">"250717" is Received</msg>
+<status status="PASS" starttime="20220720 12:41:53.818" endtime="20220720 12:41:53.821"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${RID_count}</var>
+<arg>${RID_attribute}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20220720 12:41:53.823" level="INFO">Length is 6</msg>
+<msg timestamp="20220720 12:41:53.824" level="INFO">${RID_count} = 6</msg>
+<status status="PASS" starttime="20220720 12:41:53.822" endtime="20220720 12:41:53.824"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${RID_count}==6</arg>
+<arg>Append To List</arg>
+<arg>${home_page_requisition_id}</arg>
+<arg>${RID_attribute}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Append To List" library="Collections">
+<arg>${home_page_requisition_id}</arg>
+<arg>${RID_attribute}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220720 12:41:53.827" endtime="20220720 12:41:53.827"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:53.826" endtime="20220720 12:41:53.828"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${home_page_requisition_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.828" level="INFO">['250717']</msg>
+<status status="PASS" starttime="20220720 12:41:53.828" endtime="20220720 12:41:53.829"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{Requisition_Id}</var>
+<arg>${RID_attribute}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220720 12:41:53.830" level="INFO">@{Requisition_Id} = [ 250717 ]</msg>
+<status status="PASS" starttime="20220720 12:41:53.829" endtime="20220720 12:41:53.830"/>
+</kw>
+<kw name="Update Dynamic Value" library="common">
+<var>${checkbox.accesioning.requisition_checkboxes(details).new}</var>
+<arg>${checkbox.accesioning.requisition_checkboxes(details)}</arg>
+<arg>${Requisition_Id}[0]</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:41:53.831" level="INFO">${xpath} = //td[@title='250717']//preceding-sibling::td//span[@class="checkbox"]</msg>
+<status status="PASS" starttime="20220720 12:41:53.830" endtime="20220720 12:41:53.831"/>
+</kw>
+<msg timestamp="20220720 12:41:53.832" level="INFO">${checkbox.accesioning.requisition_checkboxes(details).new} = //td[@title='250717']//preceding-sibling::td//span[@class="checkbox"]</msg>
+<status status="PASS" starttime="20220720 12:41:53.830" endtime="20220720 12:41:53.832"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${checkbox.accesioning.requisition_checkboxes(details).new}" is Received by Replacing Value-"${Requisition_Id}[0]" into Locator-"${checkbox.accesioning.requisition_checkboxes(details)}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.833" level="INFO">"//td[@title='250717']//preceding-sibling::td//span[@class="checkbox"]" is Received by Replacing Value-"250717" into Locator-"//td[@title='replaceText']//preceding-sibling::td//span[@class="checkbox"]"</msg>
+<status status="PASS" starttime="20220720 12:41:53.832" endtime="20220720 12:41:53.833"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${checkbox.accesioning.requisition_checkboxes(details).new}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220720 12:41:53.834" level="INFO">Clicking element '//td[@title='250717']//preceding-sibling::td//span[@class="checkbox"]'.</msg>
+<status status="PASS" starttime="20220720 12:41:53.833" endtime="20220720 12:41:53.981"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${checkbox.accesioning.requisition_checkboxes(details).new}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.984" level="INFO">"//td[@title='250717']//preceding-sibling::td//span[@class="checkbox"]" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:41:53.983" endtime="20220720 12:41:53.984"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${updated_sample_id}</arg>
+<arg>${Sample_Id}[0]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220720 12:41:53.984" endtime="20220720 12:41:53.985"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${updated_sample_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:53.988" level="INFO">['251643']</msg>
+<status status="PASS" starttime="20220720 12:41:53.986" endtime="20220720 12:41:53.988"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:41:54.112" level="INFO" html="true">&lt;a href="screenshot_1569.jpg"&gt;&lt;img src="screenshot_1569.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:41:53.990" endtime="20220720 12:41:54.113"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:53.711" endtime="20220720 12:41:54.113"/>
+</iter>
+<status status="PASS" starttime="20220720 12:41:53.710" endtime="20220720 12:41:54.113"/>
+</for>
+<kw name="Get Length" library="BuiltIn">
+<var>${req_id_count}</var>
+<arg>${home_page_requisition_id}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20220720 12:41:54.113" level="INFO">Length is 1</msg>
+<msg timestamp="20220720 12:41:54.114" level="INFO">${req_id_count} = 1</msg>
+<status status="PASS" starttime="20220720 12:41:54.113" endtime="20220720 12:41:54.114"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${home_page_requisition_id}</arg>
+<arg>${home_page_requisition_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220720 12:41:54.114" level="INFO">${home_page_requisition_id} = ['250717']</msg>
+<status status="PASS" starttime="20220720 12:41:54.114" endtime="20220720 12:41:54.114"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${req_id_count}</arg>
+<arg>${req_id_count}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220720 12:41:54.116" level="INFO">${req_id_count} = 1</msg>
+<status status="PASS" starttime="20220720 12:41:54.115" endtime="20220720 12:41:54.116"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${updated_sample_id}</arg>
+<arg>${updated_sample_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220720 12:41:54.117" level="INFO">${updated_sample_id} = ['251643']</msg>
+<status status="PASS" starttime="20220720 12:41:54.116" endtime="20220720 12:41:54.117"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:53.704" endtime="20220720 12:41:54.118"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Requisition Checkbox is Selected</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:54.119" level="INFO">Requisition Checkbox is Selected</msg>
+<status status="PASS" starttime="20220720 12:41:54.118" endtime="20220720 12:41:54.119"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 3 :Click on the COMPLETE Icon (Right Mark)</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:54.120" level="INFO">Test Step 3 :Click on the COMPLETE Icon (Right Mark)</msg>
+<status status="PASS" starttime="20220720 12:41:54.120" endtime="20220720 12:41:54.120"/>
+</kw>
+<kw name="Navigate to Tool_Bar Grid Buttons" library="General">
+<arg>Complete</arg>
+<doc>This Keyword is used to Select any options which is appeared on the Tool-Bar grid, by Passing the Grid Button Name as Arguement</doc>
+<kw name="Update Dynamic Value" library="common">
+<var>${button.select_tool-bar_grid_buttons.new}</var>
+<arg>${button.select_tool-bar_grid_buttons}</arg>
+<arg>${button_name}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:41:54.123" level="INFO">${xpath} = //div[@title="Complete"]//div[@class="toolbar-icon-circle"]</msg>
+<status status="PASS" starttime="20220720 12:41:54.122" endtime="20220720 12:41:54.123"/>
+</kw>
+<msg timestamp="20220720 12:41:54.123" level="INFO">${button.select_tool-bar_grid_buttons.new} = //div[@title="Complete"]//div[@class="toolbar-icon-circle"]</msg>
+<status status="PASS" starttime="20220720 12:41:54.121" endtime="20220720 12:41:54.123"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>${button.select_tool-bar_grid_buttons.new}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<arg>"${button.select_tool-bar_grid_buttons.new}" is not Visible until ${MEDIUM_WAIT} Seconds</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:41:54.124" endtime="20220720 12:41:54.124"/>
+</kw>
+<kw name="Scroll To Element" library="CustomLibrary">
+<arg>${button.select_tool-bar_grid_buttons.new}</arg>
+<doc>scroll to element using javascript</doc>
+<status status="PASS" starttime="20220720 12:41:54.124" endtime="20220720 12:41:54.142"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button.select_tool-bar_grid_buttons.new}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220720 12:41:54.145" level="INFO">Clicking element '//div[@title="Complete"]//div[@class="toolbar-icon-circle"]'.</msg>
+<status status="PASS" starttime="20220720 12:41:54.143" endtime="20220720 12:41:54.212"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${button_name}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:54.213" level="INFO">"Complete" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:41:54.213" endtime="20220720 12:41:54.213"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:41:54.356" level="INFO" html="true">&lt;a href="screenshot_1570.jpg"&gt;&lt;img src="screenshot_1570.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:41:54.214" endtime="20220720 12:41:54.356"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:41:54.358" endtime="20220720 12:41:56.366"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${page_title}'!='None'</arg>
+<arg>Page Should Contain</arg>
+<arg>${page_title}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220720 12:41:56.366" endtime="20220720 12:41:56.367"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:41:56.509" level="INFO" html="true">&lt;a href="screenshot_1571.jpg"&gt;&lt;img src="screenshot_1571.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:41:56.367" endtime="20220720 12:41:56.509"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:54.121" endtime="20220720 12:41:56.510"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>User is Navigated to Requisition "Complete" \ Page.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:56.511" level="INFO">User is Navigated to Requisition "Complete"  Page.</msg>
+<status status="PASS" starttime="20220720 12:41:56.511" endtime="20220720 12:41:56.511"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 4: Enter Tracking Number and Click on "Start Processing" button</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:56.512" level="INFO">Test Step 4: Enter Tracking Number and Click on "Start Processing" button</msg>
+<status status="PASS" starttime="20220720 12:41:56.512" endtime="20220720 12:41:56.512"/>
+</kw>
+<kw name="Perform Actions in Complete Page from Tool_bar_Grid_Buttons" library="Accesioning">
+<arg>${testdata}</arg>
+<arg>Requisition Complete All</arg>
+<arg>"Close Modal and Refresh Grid"</arg>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:41:56.514" endtime="20220720 12:41:58.531"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${page_title}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220720 12:41:58.573" level="INFO">Current page contains text 'Requisition Complete All'.</msg>
+<status status="PASS" starttime="20220720 12:41:58.532" endtime="20220720 12:41:58.574"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${button.select_present_time}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:41:58.574" endtime="20220720 12:41:58.606"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.select_present_time}</arg>
+<status status="PASS" starttime="20220720 12:41:58.606" endtime="20220720 12:41:58.645"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${textbox.accesioning.requisition_completeall.tracking_number}</arg>
+<arg>${testdata}[track-id]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220720 12:41:58.647" level="INFO">Typing text '9100151' into text field 'xpath://input[@name='tracking_number']'.</msg>
+<status status="PASS" starttime="20220720 12:41:58.646" endtime="20220720 12:41:58.828"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Data - "${testdata}[track-id]" is texted into "${textbox.accesioning.requisition_completeall.tracking_number}" TextField</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:41:58.830" level="INFO">Data - "9100151" is texted into "xpath://input[@name='tracking_number']" TextField</msg>
+<status status="PASS" starttime="20220720 12:41:58.829" endtime="20220720 12:41:58.830"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${textbox.accesioning.requisition_completeall.start_processing}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220720 12:41:58.832" level="INFO">Clicking element 'xpath://span[text()[normalize-space()='START PROCESSING']]'.</msg>
+<status status="PASS" starttime="20220720 12:41:58.831" endtime="20220720 12:41:58.897"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:41:58.898" endtime="20220720 12:42:00.902"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:01.095" level="INFO" html="true">&lt;a href="screenshot_1572.jpg"&gt;&lt;img src="screenshot_1572.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:00.903" endtime="20220720 12:42:01.096"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Button}=="Close Modal and Refresh Grid"</arg>
+<arg>Javascript Click</arg>
+<arg>${textbox.accesioning.requisition_completeall.closemodal}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${textbox.accesioning.requisition_completeall.closemodal}</arg>
+<status status="PASS" starttime="20220720 12:42:01.100" endtime="20220720 12:42:01.224"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:01.097" endtime="20220720 12:42:01.224"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:56.513" endtime="20220720 12:42:01.224"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Entered Invalid Digit Tracking Number - "${testdata}[track-id]" and Clicked on "Start Processing"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:01.226" level="INFO">Entered Invalid Digit Tracking Number - "9100151" and Clicked on "Start Processing"</msg>
+<status status="PASS" starttime="20220720 12:42:01.225" endtime="20220720 12:42:01.226"/>
+</kw>
+<kw name="Logout From Healthtrack Application" library="common">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${button.homepage.log_out}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Log out button is not visible after waiting ${LONG_WAIT} seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:42:01.229" endtime="20220720 12:42:01.280"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.homepage.log_out}</arg>
+<status status="PASS" starttime="20220720 12:42:01.281" endtime="20220720 12:42:03.854"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${button.homepage.log_out}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Log out button is not visible after waiting ${LONG_WAIT} seconds</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20220720 12:42:03.856" endtime="20220720 12:42:03.871"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:01.228" endtime="20220720 12:42:03.873"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>LoggedOut from HealthTrackRX Application</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:03.874" level="INFO">LoggedOut from HealthTrackRX Application</msg>
+<status status="PASS" starttime="20220720 12:42:03.874" endtime="20220720 12:42:03.875"/>
+</kw>
+<kw name="Take Screenshot" library="common" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220720 12:42:04.027" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Screenshots/selenium-screenshot-155.png"&gt;&lt;img src="../Screenshots/selenium-screenshot-155.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:03.877" endtime="20220720 12:42:04.027"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:03.875" endtime="20220720 12:42:04.028"/>
+</kw>
+<status status="PASS" starttime="20220720 12:41:31.725" endtime="20220720 12:42:04.028"/>
+</test>
+<test id="s1-s1-s1-t2" name="AC_195 Verify Print Preview from Requisition Hamburger in &quot;All&quot; Tab" line="580">
+<kw name="Log" library="BuiltIn">
+<arg>Read test data from excel file</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:04.031" level="INFO">Read test data from excel file</msg>
+<status status="PASS" starttime="20220720 12:42:04.030" endtime="20220720 12:42:04.031"/>
+</kw>
+<kw name="Read TestData From Excel" library="common">
+<var>${testdata}</var>
+<arg>AC_195</arg>
+<arg>Accesioning</arg>
+<doc>Read TestData from excel file for required data.</doc>
+<kw name="Get Ms Excel Row Values Into Dictionary Based On Key" library="CustomLibrary">
+<var>${test_data}</var>
+<arg>${TESTDATA_FOLDER}/TestData.xls</arg>
+<arg>${testcaseid}</arg>
+<arg>${sheet_name}</arg>
+<doc>Returns the dictionary of values given row in the MS Excel file</doc>
+<msg timestamp="20220720 12:42:04.060" level="INFO">${test_data} = {'TestCaseName': 'AC_195', 'comment': 'Qualizeal Testing'}</msg>
+<status status="PASS" starttime="20220720 12:42:04.036" endtime="20220720 12:42:04.061"/>
+</kw>
+<msg timestamp="20220720 12:42:04.061" level="INFO">${testdata} = {'TestCaseName': 'AC_195', 'comment': 'Qualizeal Testing'}</msg>
+<status status="PASS" starttime="20220720 12:42:04.032" endtime="20220720 12:42:04.061"/>
+</kw>
+<kw name="Read TestData From Excel" library="common">
+<var>${environment_data}</var>
+<arg>Chrome</arg>
+<arg>QA_environment</arg>
+<doc>Read TestData from excel file for required data.</doc>
+<kw name="Get Ms Excel Row Values Into Dictionary Based On Key" library="CustomLibrary">
+<var>${test_data}</var>
+<arg>${TESTDATA_FOLDER}/TestData.xls</arg>
+<arg>${testcaseid}</arg>
+<arg>${sheet_name}</arg>
+<doc>Returns the dictionary of values given row in the MS Excel file</doc>
+<msg timestamp="20220720 12:42:04.082" level="INFO">${test_data} = {'Environment': 'Chrome', 'Browser_name': 'Chrome', 'Username': 'prakash.kamma', 'Password': 'QZhtrx@123', 'Url': 'https://qa.healthtrackrx.com/qa/', 'InvalidUsername': 'prakash', 'InvalidPassword': '...</msg>
+<status status="PASS" starttime="20220720 12:42:04.062" endtime="20220720 12:42:04.083"/>
+</kw>
+<msg timestamp="20220720 12:42:04.084" level="INFO">${environment_data} = {'Environment': 'Chrome', 'Browser_name': 'Chrome', 'Username': 'prakash.kamma', 'Password': 'QZhtrx@123', 'Url': 'https://qa.healthtrackrx.com/qa/', 'InvalidUsername': 'prakash', 'InvalidPassword': '...</msg>
+<status status="PASS" starttime="20220720 12:42:04.061" endtime="20220720 12:42:04.084"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 1: Launch HealthTrack Rx URL.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:04.087" level="INFO">Test Step 1: Launch HealthTrack Rx URL.</msg>
+<status status="PASS" starttime="20220720 12:42:04.086" endtime="20220720 12:42:04.088"/>
+</kw>
+<kw name="Launch Browser with Chrome options for Download" library="common">
+<arg>${environment_data}[Url]</arg>
+<arg>${environment_data}[Browser_name]</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chromeOptions}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220720 12:42:04.093" level="INFO">${chromeOptions} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001514F5696A0&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:04.090" endtime="20220720 12:42:04.094"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>download.default_directory=${PDF_DOWNLOAD_FOLDER}</arg>
+<arg>enabled=False</arg>
+<arg>name=Chrome PDF Viewer</arg>
+<arg>download.extensions_to_open=applications/pdf</arg>
+<arg>plugins.always_open_pdf_externally=${TRUE}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220720 12:42:04.096" level="INFO">${prefs} = {'download.default_directory': 'D:\\Healthtrackrx-auto-tests\\Downloads', 'enabled': 'False', 'name': 'Chrome PDF Viewer', 'download.extensions_to_open': 'applications/pdf', 'plugins.always_open_pdf_e...</msg>
+<status status="PASS" starttime="20220720 12:42:04.094" endtime="20220720 12:42:04.097"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chromeOptions}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:04.097" endtime="20220720 12:42:04.098"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>${BROWSER_NAME}</arg>
+<arg>chrome_options=${chromeOptions}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20220720 12:42:04.099" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220720 12:42:04.099" endtime="20220720 12:42:05.285"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220720 12:42:05.290" level="INFO">Opening url 'https://qa.healthtrackrx.com/qa/'</msg>
+<status status="PASS" starttime="20220720 12:42:05.288" endtime="20220720 12:42:09.112"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220720 12:42:09.113" endtime="20220720 12:42:09.238"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:04.088" endtime="20220720 12:42:09.238"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>User is Navigated to HealthTrack Rx Application with ${environment_data}[Url]-URL in ${environment_data}[Browser_name]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:09.240" level="INFO">User is Navigated to HealthTrack Rx Application with https://qa.healthtrackrx.com/qa/-URL in Chrome</msg>
+<status status="PASS" starttime="20220720 12:42:09.239" endtime="20220720 12:42:09.241"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 2: Enter Credentials and Sign-In. ${USERNAME} as Username and ${PASSWORD} as Password</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:09.242" level="INFO">Test Step 2: Enter Credentials and Sign-In. prakash.kamma as Username and QZhtrx@123 as Password</msg>
+<status status="PASS" starttime="20220720 12:42:09.241" endtime="20220720 12:42:09.242"/>
+</kw>
+<kw name="Login To Application" library="common">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Login page is displayed</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:09.244" level="INFO">Login page is displayed</msg>
+<status status="PASS" starttime="20220720 12:42:09.244" endtime="20220720 12:42:09.244"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.textbox.username}</arg>
+<arg>${user_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220720 12:42:09.245" level="INFO">Typing text 'prakash.kamma' into text field '//input[contains(@name,'username')]'.</msg>
+<status status="PASS" starttime="20220720 12:42:09.245" endtime="20220720 12:42:09.360"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${user_name} is entered in ${login.textbox.username} textbox</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:09.361" level="INFO">prakash.kamma is entered in //input[contains(@name,'username')] textbox</msg>
+<status status="PASS" starttime="20220720 12:42:09.360" endtime="20220720 12:42:09.361"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.textbox.password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220720 12:42:09.362" level="INFO">Typing text 'QZhtrx@123' into text field '//input[contains(@name,'password')]'.</msg>
+<status status="PASS" starttime="20220720 12:42:09.362" endtime="20220720 12:42:09.463"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${password} is entered in ${login.textbox.password} textbox</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:09.467" level="INFO">QZhtrx@123 is entered in //input[contains(@name,'password')] textbox</msg>
+<status status="PASS" starttime="20220720 12:42:09.464" endtime="20220720 12:42:09.468"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${login.button.signin}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Sign in button is not displayed</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:42:09.468" endtime="20220720 12:42:09.495"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220720 12:42:11.506" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220720 12:42:09.495" endtime="20220720 12:42:11.506"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login.button.signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220720 12:42:11.508" level="INFO">Clicking element '//div[@class='button-text']'.</msg>
+<status status="PASS" starttime="20220720 12:42:11.507" endtime="20220720 12:42:11.556"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${homescreen.label.homepage.client_portal_menu}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Login failed. Home page is not displayed</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${homescreen.label.homepage.client_portal_menu}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Login failed. Home page is not displayed</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:42:11.557" endtime="20220720 12:42:14.043"/>
+</kw>
+<msg timestamp="20220720 12:42:14.044" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20220720 12:42:11.557" endtime="20220720 12:42:14.045"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${status}==False</arg>
+<arg>Fail</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220720 12:42:14.046" endtime="20220720 12:42:14.047"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${pagetitle.homepage}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220720 12:42:14.048" endtime="20220720 12:42:14.067"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:14.226" level="INFO" html="true">&lt;a href="screenshot_1573.jpg"&gt;&lt;img src="screenshot_1573.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:14.068" endtime="20220720 12:42:14.227"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:09.243" endtime="20220720 12:42:14.228"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>User is Navigated to Home Page</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:14.229" level="INFO">User is Navigated to Home Page</msg>
+<status status="PASS" starttime="20220720 12:42:14.229" endtime="20220720 12:42:14.230"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 3 : Click on Accessioning and Click on All.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:14.232" level="INFO">Test Step 3 : Click on Accessioning and Click on All.</msg>
+<status status="PASS" starttime="20220720 12:42:14.231" endtime="20220720 12:42:14.232"/>
+</kw>
+<kw name="Navigate to Module &amp; Tab" library="General">
+<arg>Accessioning</arg>
+<arg>All</arg>
+<kw name="Update Dynamic Value" library="common">
+<var>${button.homepage.select_menu.new}</var>
+<arg>${button.homepage.select_menu}</arg>
+<arg>${menu}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:14.240" level="INFO">${xpath} = xpath://div[@class='menu-title' and text()='Accessioning']</msg>
+<status status="PASS" starttime="20220720 12:42:14.238" endtime="20220720 12:42:14.240"/>
+</kw>
+<msg timestamp="20220720 12:42:14.241" level="INFO">${button.homepage.select_menu.new} = xpath://div[@class='menu-title' and text()='Accessioning']</msg>
+<status status="PASS" starttime="20220720 12:42:14.235" endtime="20220720 12:42:14.241"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Wait Until Element Is Visible</arg>
+<arg>${button.homepage.select_menu.new}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<arg>"${menu}" Locator is not visible until "${MEDIUM_WAIT}" seconds</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:14.242" endtime="20220720 12:42:14.242"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:14.243" endtime="20220720 12:42:16.250"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.homepage.select_menu.new}</arg>
+<status status="PASS" starttime="20220720 12:42:16.250" endtime="20220720 12:42:22.076"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${menu}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:22.077" level="INFO">"Accessioning" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:22.077" endtime="20220720 12:42:22.078"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:22.194" level="INFO" html="true">&lt;a href="screenshot_1574.jpg"&gt;&lt;img src="screenshot_1574.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:22.078" endtime="20220720 12:42:22.194"/>
+</kw>
+<kw name="Navigate to Tab" library="General">
+<arg>${sub-menu}</arg>
+<kw name="Update Dynamic Value" library="common">
+<var>${button.homepage.sub_menu.new}</var>
+<arg>${button.homepage.sub_menu}</arg>
+<arg>${sub-menu}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:22.205" level="INFO">${xpath} = xpath://div[@class="tabmenu-text"]//span[text()="All"]</msg>
+<status status="PASS" starttime="20220720 12:42:22.198" endtime="20220720 12:42:22.205"/>
+</kw>
+<msg timestamp="20220720 12:42:22.209" level="INFO">${button.homepage.sub_menu.new} = xpath://div[@class="tabmenu-text"]//span[text()="All"]</msg>
+<status status="PASS" starttime="20220720 12:42:22.196" endtime="20220720 12:42:22.220"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Wait Until Element Is Visible</arg>
+<arg>${button.homepage.sub_menu.new}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<arg>"${sub-menu}" Locator is not visible until "${MEDIUM_WAIT}" seconds</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:22.221" endtime="20220720 12:42:22.222"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:22.224" endtime="20220720 12:42:24.235"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.homepage.sub_menu.new}</arg>
+<status status="PASS" starttime="20220720 12:42:24.236" endtime="20220720 12:42:28.729"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${sub-menu}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:28.731" level="INFO">"All" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:28.730" endtime="20220720 12:42:28.731"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:28.857" level="INFO" html="true">&lt;a href="screenshot_1575.jpg"&gt;&lt;img src="screenshot_1575.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:28.732" endtime="20220720 12:42:28.857"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:22.195" endtime="20220720 12:42:28.858"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:14.235" endtime="20220720 12:42:28.859"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"Accessioning All" data page is displayed.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:28.860" level="INFO">"Accessioning All" data page is displayed.</msg>
+<status status="PASS" starttime="20220720 12:42:28.859" endtime="20220720 12:42:28.860"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Handle Alert - "We'd like to show you notifications for the latest news and updates."</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:28.862" level="INFO">Handle Alert - "We'd like to show you notifications for the latest news and updates."</msg>
+<status status="PASS" starttime="20220720 12:42:28.861" endtime="20220720 12:42:28.862"/>
+</kw>
+<kw name="Refuse Alert for Notifications of News" library="common">
+<kw name="Comment" library="BuiltIn">
+<arg>Refuse Alert Popup of Notifications of News and Updates</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:28.863" endtime="20220720 12:42:28.863"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${button.homepage.refusealert}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>refuse_alert is not visible after waiting ${LONG_WAIT} seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:42:28.864" endtime="20220720 12:42:30.942"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.homepage.refusealert}</arg>
+<status status="PASS" starttime="20220720 12:42:30.943" endtime="20220720 12:42:30.980"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${button.homepage.refusealert}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:30.981" level="INFO">"xpath://a[@id='pushActionRefuse']" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:30.980" endtime="20220720 12:42:30.981"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:31.127" level="INFO" html="true">&lt;a href="screenshot_1576.jpg"&gt;&lt;img src="screenshot_1576.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:30.982" endtime="20220720 12:42:31.128"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:28.862" endtime="20220720 12:42:31.129"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Refused Alert for Notifications of News</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:31.130" level="INFO">Refused Alert for Notifications of News</msg>
+<status status="PASS" starttime="20220720 12:42:31.130" endtime="20220720 12:42:31.131"/>
+</kw>
+<kw name="Click Arrow-Down Button" library="Accesioning">
+<arg>${button.accesioning.details.down_arrow}</arg>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${arrow_attributeo}</var>
+<arg>${button.accesioning.sample_details_arrow}</arg>
+<arg>class</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220720 12:42:31.175" level="INFO">${arrow_attributeo} = new-grid-column sort-arrow-updown</msg>
+<status status="PASS" starttime="20220720 12:42:31.133" endtime="20220720 12:42:31.175"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${arrow_attributeo}" is Received</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:31.177" level="INFO">"new-grid-column sort-arrow-updown" is Received</msg>
+<status status="PASS" starttime="20220720 12:42:31.176" endtime="20220720 12:42:31.178"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${down_arrow_status0}</var>
+<arg>Should Be Equal</arg>
+<arg>${arrow_attributeo}</arg>
+<arg>${arrow_locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${arrow_attributeo}</arg>
+<arg>${arrow_locator}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20220720 12:42:31.183" level="FAIL">new-grid-column sort-arrow-updown != new-grid-column sort-arrow-down</msg>
+<status status="FAIL" starttime="20220720 12:42:31.180" endtime="20220720 12:42:31.184"/>
+</kw>
+<msg timestamp="20220720 12:42:31.189" level="INFO">${down_arrow_status0} = False</msg>
+<status status="PASS" starttime="20220720 12:42:31.179" endtime="20220720 12:42:31.189"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${down_arrow_status0}" is Received</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:31.191" level="INFO">"False" is Received</msg>
+<status status="PASS" starttime="20220720 12:42:31.190" endtime="20220720 12:42:31.191"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${down_arrow_status0}==False</arg>
+<arg>Javascript Click</arg>
+<arg>${button.accesioning.sample_details_arrow}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.accesioning.sample_details_arrow}</arg>
+<status status="PASS" starttime="20220720 12:42:31.193" endtime="20220720 12:42:31.242"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:31.192" endtime="20220720 12:42:31.242"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${button.accesioning.sample_details_arrow}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:31.244" level="INFO">"xpath://th[contains(@id,'crud_grid_sort_merge_icon')]//i" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:31.243" endtime="20220720 12:42:31.245"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:31.428" level="INFO" html="true">&lt;a href="screenshot_1577.jpg"&gt;&lt;img src="screenshot_1577.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:31.245" endtime="20220720 12:42:31.428"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:31.132" endtime="20220720 12:42:31.429"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Arrow Button is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:31.430" level="INFO">Arrow Button is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:31.430" endtime="20220720 12:42:31.430"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 4: Select one Requisition ID and Click on Requisition Hamburger menu.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:31.432" level="INFO">Test Step 4: Select one Requisition ID and Click on Requisition Hamburger menu.</msg>
+<status status="PASS" starttime="20220720 12:42:31.431" endtime="20220720 12:42:31.432"/>
+</kw>
+<kw name="Get First Requisition (Sample-Id,RID)" library="Accesioning">
+<var>${sample_id}</var>
+<arg>${label.accessioning.get_sample-id_first_requisition}</arg>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:31.437" endtime="20220720 12:42:33.452"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${get_id-value_locator}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<arg>Locator is not visible until "${MEDIUM_WAIT}" seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:42:33.452" endtime="20220720 12:42:33.487"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${sample_id}</var>
+<arg>${get_id-value_locator}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20220720 12:42:33.518" level="INFO">${sample_id} = Respiratory Tract Infection Plus</msg>
+<status status="PASS" starttime="20220720 12:42:33.488" endtime="20220720 12:42:33.519"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${sample_id}" is Received</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:33.519" level="INFO">"Respiratory Tract Infection Plus" is Received</msg>
+<status status="PASS" starttime="20220720 12:42:33.519" endtime="20220720 12:42:33.519"/>
+</kw>
+<msg timestamp="20220720 12:42:33.519" level="INFO">${sample_id} = Respiratory Tract Infection Plus</msg>
+<status status="PASS" starttime="20220720 12:42:31.434" endtime="20220720 12:42:33.519"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Requisition is Selected</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:33.520" level="INFO">Requisition is Selected</msg>
+<status status="PASS" starttime="20220720 12:42:33.520" endtime="20220720 12:42:33.520"/>
+</kw>
+<kw name="Add Comments in Hamburger_Comments Page" library="Accesioning">
+<arg>${sample_id}</arg>
+<arg>${testdata}</arg>
+<kw name="Navigate to Requisition Hamburger Sub-Menu" library="General">
+<arg>${sample_Id}</arg>
+<arg>Comments</arg>
+<arg>Comments</arg>
+<doc>This Keyword is used to Navigate to Hamburger Sub-menu by Passing the Selected Requisition Sample-Id  and Menu Option Name</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${button.req-hamburger.new}</var>
+<arg>'${input_data}'=='rid'</arg>
+<arg>Update Dynamic Value</arg>
+<arg>${button.client_portal.hamburger_menu_using_rid}</arg>
+<arg>${sample_id_value}</arg>
+<arg>ELSE</arg>
+<arg>Update Dynamic Value</arg>
+<arg>${button.requisition_hamburger}</arg>
+<arg>${sample_id_value}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Update Dynamic Value" library="common">
+<arg>${button.requisition_hamburger}</arg>
+<arg>${sample_id_value}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:33.525" level="INFO">${xpath} = //tbody[@class="grid_body"]//child::td[@title='Respiratory Tract Infection Plus']//preceding-sibling::td//div[@class="row-dropdown-button"]</msg>
+<status status="PASS" starttime="20220720 12:42:33.524" endtime="20220720 12:42:33.525"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:33.522" endtime="20220720 12:42:33.525"/>
+</kw>
+<msg timestamp="20220720 12:42:33.531" level="INFO">${button.req-hamburger.new} = //tbody[@class="grid_body"]//child::td[@title='Respiratory Tract Infection Plus']//preceding-sibling::td//div[@class="row-dropdown-button"]</msg>
+<status status="PASS" starttime="20220720 12:42:33.521" endtime="20220720 12:42:33.532"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>${button.req-hamburger.new}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<arg>"${sample_id_value} - Requisition Hamburger" is not visible until "${MEDIUM_WAIT}" seconds</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:33.532" endtime="20220720 12:42:33.533"/>
+</kw>
+<kw name="Scroll To Element" library="CustomLibrary">
+<arg>${button.req-hamburger.new}</arg>
+<doc>scroll to element using javascript</doc>
+<status status="PASS" starttime="20220720 12:42:33.534" endtime="20220720 12:42:33.561"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button.req-hamburger.new}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220720 12:42:33.562" level="INFO">Clicking element '//tbody[@class="grid_body"]//child::td[@title='Respiratory Tract Infection Plus']//preceding-sibling::td//div[@class="row-dropdown-button"]'.</msg>
+<status status="PASS" starttime="20220720 12:42:33.561" endtime="20220720 12:42:33.642"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Requisition Hamburger of Sample Id-"${sample_id_value}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:33.643" level="INFO">Requisition Hamburger of Sample Id-"Respiratory Tract Infection Plus" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:33.643" endtime="20220720 12:42:33.644"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:33.775" level="INFO" html="true">&lt;a href="screenshot_1578.jpg"&gt;&lt;img src="screenshot_1578.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:33.644" endtime="20220720 12:42:33.776"/>
+</kw>
+<kw name="Update Dynamic Values" library="General">
+<var>${button.req-hamburger-options.new}</var>
+<arg>${button.requisition_hamburger_options}</arg>
+<arg>${sample_id_value}</arg>
+<arg>${Hamburger_Menu}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText1</arg>
+<arg>${value1}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:33.778" level="INFO">${xpath} = xpath://td[@title='Respiratory Tract Infection Plus']//parent::tr//div//button[text()='replaceText2']|//div[text()='replaceText2']</msg>
+<status status="PASS" starttime="20220720 12:42:33.778" endtime="20220720 12:42:33.778"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${updated_xpath}</var>
+<arg>${xpath}</arg>
+<arg>replaceText2</arg>
+<arg>${value2}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:33.779" level="INFO">${updated_xpath} = xpath://td[@title='Respiratory Tract Infection Plus']//parent::tr//div//button[text()='Comments']|//div[text()='Comments']</msg>
+<status status="PASS" starttime="20220720 12:42:33.779" endtime="20220720 12:42:33.779"/>
+</kw>
+<msg timestamp="20220720 12:42:33.798" level="INFO">${button.req-hamburger-options.new} = xpath://td[@title='Respiratory Tract Infection Plus']//parent::tr//div//button[text()='Comments']|//div[text()='Comments']</msg>
+<status status="PASS" starttime="20220720 12:42:33.776" endtime="20220720 12:42:33.799"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>${button.req-hamburger-options.new}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<arg>"${Hamburger_Menu}" is not displayed until ${MEDIUM_WAIT} seconds</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:33.801" endtime="20220720 12:42:33.802"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:33.803" endtime="20220720 12:42:35.805"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.req-hamburger-options.new}</arg>
+<status status="PASS" starttime="20220720 12:42:35.806" endtime="20220720 12:42:35.840"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${Hamburger_Menu}" is clicked.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:35.841" level="INFO">"Comments" is clicked.</msg>
+<status status="PASS" starttime="20220720 12:42:35.841" endtime="20220720 12:42:35.841"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:35.977" level="INFO" html="true">&lt;a href="screenshot_1579.jpg"&gt;&lt;img src="screenshot_1579.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:35.842" endtime="20220720 12:42:35.977"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:35.978" endtime="20220720 12:42:37.981"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${page_title}'!='None'</arg>
+<arg>Page Should Contain</arg>
+<arg>${page_title}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220720 12:42:37.982" endtime="20220720 12:42:37.983"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:38.096" level="INFO" html="true">&lt;a href="screenshot_1580.jpg"&gt;&lt;img src="screenshot_1580.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:37.983" endtime="20220720 12:42:38.097"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:33.521" endtime="20220720 12:42:38.098"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Navigated to "Hamburger_Comments" Page</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:38.099" level="INFO">Navigated to "Hamburger_Comments" Page</msg>
+<status status="PASS" starttime="20220720 12:42:38.099" endtime="20220720 12:42:38.099"/>
+</kw>
+<kw name="Select Frame And Input Req Comments" library="Results_review_module">
+<arg>${frame.results_review.create_sample_comment.}</arg>
+<arg>${textbox.results_review.reqcomment}</arg>
+<arg>${Testdata}</arg>
+<doc>This Keyword is used to Select Frame and Text Data into Frame, by Passing the Frame Locator,Textfield Locator with Text Value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${frame_locator}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:42:38.100" endtime="20220720 12:42:44.686"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${frame_locator}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20220720 12:42:44.687" level="INFO">Selecting frame '//iframe[contains(@id,"extended_comment_ifr")]'.</msg>
+<status status="PASS" starttime="20220720 12:42:44.686" endtime="20220720 12:42:44.752"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${frame_locator}" is Selected</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:44.754" level="INFO">"//iframe[contains(@id,"extended_comment_ifr")]" is Selected</msg>
+<status status="PASS" starttime="20220720 12:42:44.752" endtime="20220720 12:42:44.754"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:44.900" level="INFO" html="true">&lt;a href="screenshot_1581.jpg"&gt;&lt;img src="screenshot_1581.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:44.755" endtime="20220720 12:42:44.901"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${textbox_locator}</arg>
+<arg>${testdata}[comment]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220720 12:42:44.901" level="INFO">Typing text 'Qualizeal Testing' into text field '//body[@id="tinymce"]'.</msg>
+<status status="PASS" starttime="20220720 12:42:44.901" endtime="20220720 12:42:45.085"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${testdata}[comment]" is Entered into "${textbox_locator}" TextField</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:45.086" level="INFO">"Qualizeal Testing" is Entered into "//body[@id="tinymce"]" TextField</msg>
+<status status="PASS" starttime="20220720 12:42:45.086" endtime="20220720 12:42:45.086"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:45.211" level="INFO" html="true">&lt;a href="screenshot_1582.jpg"&gt;&lt;img src="screenshot_1582.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:45.086" endtime="20220720 12:42:45.211"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20220720 12:42:45.212" endtime="20220720 12:42:45.221"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${frame_locator}" \ is Deselected</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:45.222" level="INFO">"//iframe[contains(@id,"extended_comment_ifr")]"  is Deselected</msg>
+<status status="PASS" starttime="20220720 12:42:45.221" endtime="20220720 12:42:45.222"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:38.099" endtime="20220720 12:42:45.222"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Comments from "${Testdata}" is Entered into Selected Frame</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:45.223" level="INFO">Comments from "{'TestCaseName': 'AC_195', 'comment': 'Qualizeal Testing'}" is Entered into Selected Frame</msg>
+<status status="PASS" starttime="20220720 12:42:45.223" endtime="20220720 12:42:45.224"/>
+</kw>
+<kw name="Perform Actions" library="General">
+<arg>${button.actions}</arg>
+<arg>Add</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<doc>This Keyword is used to Click on Save,Order,Add,Delete,...etc Buttons</doc>
+<kw name="Update Dynamic Value" library="common">
+<var>${actions_locator.new}</var>
+<arg>${actions_locator}</arg>
+<arg>${button_name}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:45.230" level="INFO">${xpath} = xpath://div[text()="Add"]</msg>
+<status status="PASS" starttime="20220720 12:42:45.228" endtime="20220720 12:42:45.230"/>
+</kw>
+<msg timestamp="20220720 12:42:45.231" level="INFO">${actions_locator.new} = xpath://div[text()="Add"]</msg>
+<status status="PASS" starttime="20220720 12:42:45.227" endtime="20220720 12:42:45.232"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>${actions_locator.new}</arg>
+<arg>${WAIT_TIME}</arg>
+<arg>"${button_name}" is not visible after waiting ${WAIT_TIME}seconds</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:45.232" endtime="20220720 12:42:45.232"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:45.232" endtime="20220720 12:42:47.248"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${actions_locator.new}</arg>
+<status status="PASS" starttime="20220720 12:42:47.250" endtime="20220720 12:42:47.290"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:47.462" level="INFO" html="true">&lt;a href="screenshot_1583.jpg"&gt;&lt;img src="screenshot_1583.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:47.291" endtime="20220720 12:42:47.462"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${button_name}" button is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:47.463" level="INFO">"Add" button is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:47.463" endtime="20220720 12:42:47.463"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:45.225" endtime="20220720 12:42:47.464"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"Add" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:47.466" level="INFO">"Add" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:47.465" endtime="20220720 12:42:47.466"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.accesioning.requisition_list_hamburger_menu.comments.pageclose(x)}</arg>
+<status status="PASS" starttime="20220720 12:42:47.467" endtime="20220720 12:42:47.554"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:33.520" endtime="20220720 12:42:47.556"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Added Comments into Requisition through Hamburger_Comments Page</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:47.556" level="INFO">Added Comments into Requisition through Hamburger_Comments Page</msg>
+<status status="PASS" starttime="20220720 12:42:47.556" endtime="20220720 12:42:47.557"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Step 5: Click on "Regenerate Requisition Form".</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:47.557" level="INFO">Test Step 5: Click on "Regenerate Requisition Form".</msg>
+<status status="PASS" starttime="20220720 12:42:47.557" endtime="20220720 12:42:47.557"/>
+</kw>
+<kw name="Navigate to Requisition Hamburger Sub-Menu" library="General">
+<arg>${sample_id}</arg>
+<arg>Print Preview</arg>
+<doc>This Keyword is used to Navigate to Hamburger Sub-menu by Passing the Selected Requisition Sample-Id  and Menu Option Name</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${button.req-hamburger.new}</var>
+<arg>'${input_data}'=='rid'</arg>
+<arg>Update Dynamic Value</arg>
+<arg>${button.client_portal.hamburger_menu_using_rid}</arg>
+<arg>${sample_id_value}</arg>
+<arg>ELSE</arg>
+<arg>Update Dynamic Value</arg>
+<arg>${button.requisition_hamburger}</arg>
+<arg>${sample_id_value}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Update Dynamic Value" library="common">
+<arg>${button.requisition_hamburger}</arg>
+<arg>${sample_id_value}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText</arg>
+<arg>${value}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:47.560" level="INFO">${xpath} = //tbody[@class="grid_body"]//child::td[@title='Respiratory Tract Infection Plus']//preceding-sibling::td//div[@class="row-dropdown-button"]</msg>
+<status status="PASS" starttime="20220720 12:42:47.560" endtime="20220720 12:42:47.560"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:47.559" endtime="20220720 12:42:47.561"/>
+</kw>
+<msg timestamp="20220720 12:42:47.573" level="INFO">${button.req-hamburger.new} = //tbody[@class="grid_body"]//child::td[@title='Respiratory Tract Infection Plus']//preceding-sibling::td//div[@class="row-dropdown-button"]</msg>
+<status status="PASS" starttime="20220720 12:42:47.558" endtime="20220720 12:42:47.574"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>${button.req-hamburger.new}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<arg>"${sample_id_value} - Requisition Hamburger" is not visible until "${MEDIUM_WAIT}" seconds</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:47.576" endtime="20220720 12:42:47.580"/>
+</kw>
+<kw name="Scroll To Element" library="CustomLibrary">
+<arg>${button.req-hamburger.new}</arg>
+<doc>scroll to element using javascript</doc>
+<status status="PASS" starttime="20220720 12:42:47.586" endtime="20220720 12:42:47.697"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button.req-hamburger.new}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220720 12:42:47.699" level="INFO">Clicking element '//tbody[@class="grid_body"]//child::td[@title='Respiratory Tract Infection Plus']//preceding-sibling::td//div[@class="row-dropdown-button"]'.</msg>
+<status status="PASS" starttime="20220720 12:42:47.697" endtime="20220720 12:42:47.960"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Requisition Hamburger of Sample Id-"${sample_id_value}" is Clicked</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:47.962" level="INFO">Requisition Hamburger of Sample Id-"Respiratory Tract Infection Plus" is Clicked</msg>
+<status status="PASS" starttime="20220720 12:42:47.961" endtime="20220720 12:42:47.962"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:48.122" level="INFO" html="true">&lt;a href="screenshot_1584.jpg"&gt;&lt;img src="screenshot_1584.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:47.962" endtime="20220720 12:42:48.123"/>
+</kw>
+<kw name="Update Dynamic Values" library="General">
+<var>${button.req-hamburger-options.new}</var>
+<arg>${button.requisition_hamburger_options}</arg>
+<arg>${sample_id_value}</arg>
+<arg>${Hamburger_Menu}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${locator}</arg>
+<arg>replaceText1</arg>
+<arg>${value1}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:48.127" level="INFO">${xpath} = xpath://td[@title='Respiratory Tract Infection Plus']//parent::tr//div//button[text()='replaceText2']|//div[text()='replaceText2']</msg>
+<status status="PASS" starttime="20220720 12:42:48.127" endtime="20220720 12:42:48.128"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${updated_xpath}</var>
+<arg>${xpath}</arg>
+<arg>replaceText2</arg>
+<arg>${value2}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220720 12:42:48.129" level="INFO">${updated_xpath} = xpath://td[@title='Respiratory Tract Infection Plus']//parent::tr//div//button[text()='Print Preview']|//div[text()='Print Preview']</msg>
+<status status="PASS" starttime="20220720 12:42:48.128" endtime="20220720 12:42:48.130"/>
+</kw>
+<msg timestamp="20220720 12:42:48.145" level="INFO">${button.req-hamburger-options.new} = xpath://td[@title='Respiratory Tract Infection Plus']//parent::tr//div//button[text()='Print Preview']|//div[text()='Print Preview']</msg>
+<status status="PASS" starttime="20220720 12:42:48.124" endtime="20220720 12:42:48.145"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>${button.req-hamburger-options.new}</arg>
+<arg>${MEDIUM_WAIT}</arg>
+<arg>"${Hamburger_Menu}" is not displayed until ${MEDIUM_WAIT} seconds</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20220720 12:42:48.146" endtime="20220720 12:42:48.146"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:48.147" endtime="20220720 12:42:50.155"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.req-hamburger-options.new}</arg>
+<status status="PASS" starttime="20220720 12:42:50.155" endtime="20220720 12:42:50.264"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${Hamburger_Menu}" is clicked.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:50.268" level="INFO">"Print Preview" is clicked.</msg>
+<status status="PASS" starttime="20220720 12:42:50.265" endtime="20220720 12:42:50.268"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:50.437" level="INFO" html="true">&lt;a href="screenshot_1585.jpg"&gt;&lt;img src="screenshot_1585.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:50.270" endtime="20220720 12:42:50.438"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:50.439" endtime="20220720 12:42:52.443"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${page_title}'!='None'</arg>
+<arg>Page Should Contain</arg>
+<arg>${page_title}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220720 12:42:52.443" endtime="20220720 12:42:52.444"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20220720 12:42:52.584" level="INFO" html="true">&lt;a href="screenshot_1586.jpg"&gt;&lt;img src="screenshot_1586.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:52.445" endtime="20220720 12:42:52.584"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:47.558" endtime="20220720 12:42:52.584"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Options are displayed. &amp; Navigated to Requisition Hamburger "Print Preview" Page</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:52.585" level="INFO">Options are displayed. &amp; Navigated to Requisition Hamburger "Print Preview" Page</msg>
+<status status="PASS" starttime="20220720 12:42:52.585" endtime="20220720 12:42:52.585"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:52.586" endtime="20220720 12:42:54.586"/>
+</kw>
+<kw name="Read File Path" library="CustomLibrary">
+<var>${file_path}</var>
+<arg>${EXECDIR}\\Downloads</arg>
+<msg timestamp="20220720 12:42:54.589" level="INFO">${file_path} = ['D:\\Healthtrackrx-auto-tests\\Downloads\\Emily_HTRXTEST_Pending_RHTRX369194_62d7aac953dad.pdf']</msg>
+<status status="PASS" starttime="20220720 12:42:54.586" endtime="20220720 12:42:54.589"/>
+</kw>
+<kw name="Read Coloured Pdf" library="CustomLibrary">
+<var>${pdf_data}</var>
+<arg>${file_path}[0]</arg>
+<msg timestamp="20220720 12:42:54.612" level="INFO">xref found: pos=b'37247'</msg>
+<msg timestamp="20220720 12:42:54.612" level="INFO">read_xref_from: start=37247, token=/b'xref'</msg>
+<msg timestamp="20220720 12:42:54.612" level="INFO">xref objects: {1: (None, 19240, 0), 2: (None, 19579, 0), 3: (None, 15, 0), 4: (None, 28737, 0), 5: (None, 36646, 0), 6: (None, 11071, 0), 7: (None, 14892, 0), 8: (None, 15846, 0), 9: (None, 36791, 0), 10: (None, 19543, 0), 11: (None, 19667, 0), 12: (None, 27380, 0), 13: (None, 27580, 0), 14: (None, 28079, 0), 15: (None, 28883, 0), 16: (None, 35498, 0), 17: (None, 35697, 0), 18: (None, 36111, 0), 19: (None, 36854, 0), 20: (None, 36910, 0), 21: (None, 36944, 0), 22: (None, 37049, 0)}</msg>
+<msg timestamp="20220720 12:42:54.613" level="INFO">trailer: {'Info': &lt;PDFObjRef:22&gt;, 'ID': [b'z\x84\xf4;\xf19\xcf\xe3\xd0\x19Rn\xb4\xca\x9e\xaf', b'6\xc8\xad\x80{J!eZ\xa7\xe6\xad#&gt;\xc5\x06'], 'Root': &lt;PDFObjRef:21&gt;, 'Size': 23}</msg>
+<msg timestamp="20220720 12:42:54.620" level="INFO">trailer: {'Info': &lt;PDFObjRef:22&gt;, 'ID': [b'z\x84\xf4;\xf19\xcf\xe3\xd0\x19Rn\xb4\xca\x9e\xaf', b'6\xc8\xad\x80{J!eZ\xa7\xe6\xad#&gt;\xc5\x06'], 'Root': &lt;PDFObjRef:21&gt;, 'Size': 23}</msg>
+<msg timestamp="20220720 12:42:54.621" level="INFO">Pages: Kids=[&lt;PDFObjRef:1&gt;]</msg>
+<msg timestamp="20220720 12:42:54.622" level="INFO">Page: {'Tabs': /'S', 'Group': {'S': /'Transparency', 'Type': /'Group', 'CS': /'DeviceRGB'}, 'Contents': &lt;PDFObjRef:8&gt;, 'Type': /'Page', 'Resources': {'ColorSpace': {'CS': /'DeviceRGB'}, 'ProcSet': [/'PDF', /'Text', /'ImageB', /'ImageC', /'ImageI'], 'Font': {'F1': &lt;PDFObjRef:2&gt;, 'F2': &lt;PDFObjRef:4&gt;, 'F3': &lt;PDFObjRef:5&gt;}, 'XObject': {'Xf1': &lt;PDFObjRef:6&gt;, 'img1': &lt;PDFObjRef:7&gt;, 'img0': &lt;PDFObjRef:3&gt;}}, 'Parent': &lt;PDFObjRef:9&gt;, 'MediaBox': [0, 0, 612, 792]}</msg>
+<msg timestamp="20220720 12:42:54.624" level="INFO">Processing page: &lt;PDFPage: Resources={'ColorSpace': {'CS': /'DeviceRGB'}, 'ProcSet': [/'PDF', /'Text', /'ImageB', /'ImageC', /'ImageI'], 'Font': {'F1': &lt;PDFObjRef:2&gt;, 'F2': &lt;PDFObjRef:4&gt;, 'F3': &lt;PDFObjRef:5&gt;}, 'XObject': {'Xf1': &lt;PDFObjRef:6&gt;, 'img1': &lt;PDFObjRef:7&gt;, 'img0': &lt;PDFObjRef:3&gt;}}, MediaBox=[0, 0, 612, 792]&gt;</msg>
+<msg timestamp="20220720 12:42:54.625" level="INFO">render_contents: resources={'ColorSpace': {'CS': /'DeviceRGB'}, 'ProcSet': [/'PDF', /'Text', /'ImageB', /'ImageC', /'ImageI'], 'Font': {'F1': &lt;PDFObjRef:2&gt;, 'F2': &lt;PDFObjRef:4&gt;, 'F3': &lt;PDFObjRef:5&gt;}, 'XObject': {'Xf1': &lt;PDFObjRef:6&gt;, 'img1': &lt;PDFObjRef:7&gt;, 'img0': &lt;PDFObjRef:3&gt;}}, streams=[&lt;PDFStream(8): raw=3327, {'Filter': /'FlateDecode', 'Length': 3326}&gt;], ctm=(1, 0, 0, 1, 0, 0)</msg>
+<msg timestamp="20220720 12:42:54.625" level="INFO">get_font: create: objid=2, spec={'Subtype': /'Type1', 'Type': /'Font', 'BaseFont': /'Helvetica', 'Encoding': /'WinAnsiEncoding'}</msg>
+<msg timestamp="20220720 12:42:54.626" level="INFO">get_font: create: objid=4, spec={'Subtype': /'Type0', 'Type': /'Font', 'BaseFont': /'GCLTNF+Avenir-Medium-Identity-H', 'Encoding': /'Identity-H', 'DescendantFonts': [&lt;PDFObjRef:13&gt;], 'ToUnicode': &lt;PDFObjRef:14&gt;}</msg>
+<msg timestamp="20220720 12:42:54.628" level="INFO">get_font: create: objid=None, spec={'DW': 1000, 'Subtype': /'CIDFontType0', 'CIDSystemInfo': {'Supplement': 0, 'Registry': b'Adobe', 'Ordering': b'Identity'}, 'Type': /'Font', 'BaseFont': /'GCLTNF+Avenir-Medium-Identity-H', 'FontDescriptor': &lt;PDFObjRef:12&gt;, 'W': [3, [278], 6, [556], 11, [278, 278, 464], 15, [278, 316, 278, 389, 556, 556, 556, 556, 556, 556, 556, 556, 556, 556, 278, 278, 666], 33, [666], 36, [704, 630, 704, 741, 611, 574, 778, 741, 278], 47, [519, 906, 796, 832, 593, 832, 611, 556, 574, 704, 630, 962, 648], 68, [519, 611, 482, 611, 556, 333, 611, 556, 240], 78, [519, 240, 852, 556, 594, 611, 611, 370, 444, 370, 556, 500, 759, 519, 500, 463]], 'Encoding': /'Identity-H', 'ToUnicode': &lt;PDFStream(14): raw=591, {'Filter': /'FlateDecode', 'Length': 590}&gt;}</msg>
+<msg timestamp="20220720 12:42:54.638" level="INFO">get_font: create: objid=5, spec={'Subtype': /'Type0', 'Type': /'Font', 'BaseFont': /'DHBFUV+Avenir-Black-Identity-H', 'Encoding': /'Identity-H', 'DescendantFonts': [&lt;PDFObjRef:17&gt;], 'ToUnicode': &lt;PDFObjRef:18&gt;}</msg>
+<msg timestamp="20220720 12:42:54.640" level="INFO">get_font: create: objid=None, spec={'DW': 1000, 'Subtype': /'CIDFontType0', 'CIDSystemInfo': {'Supplement': 0, 'Registry': b'Adobe', 'Ordering': b'Identity'}, 'Type': /'Font', 'BaseFont': /'DHBFUV+Avenir-Black-Identity-H', 'FontDescriptor': &lt;PDFObjRef:16&gt;, 'W': [3, [296], 6, [592], 13, [482], 18, [407], 29, [296], 36, [741, 648, 685, 759, 630, 593, 778, 759, 296], 47, [537, 944, 815, 832, 630], 53, [648, 574, 574, 741, 704], 60, [648], 68, [537, 630, 482, 630, 574, 370, 630, 574, 260], 79, [260, 870, 574, 610, 630], 85, [407, 463, 407, 574, 556], 92, [556, 500]], 'Encoding': /'Identity-H', 'ToUnicode': &lt;PDFStream(18): raw=468, {'Filter': /'FlateDecode', 'Length': 467}&gt;}</msg>
+<msg timestamp="20220720 12:42:54.649" level="INFO">Processing xobj: &lt;PDFStream(3): raw=10028, {'ColorSpace': [/'Indexed', /'DeviceRGB', 255, b'\xc6\xc6\xc6\xea\xea\xea\xbd\xbd\xbe\xb5\xb4\xb5LLM\xa9\xa9\xaa\xba\xb9\xb9\xcd\xcd\xcd\xfa\xfa\xfaY\xcb\xcd\x9d\x9d\x9d\x8c\xdb\xdc\xdd\xdd\xde\x92\xdd\xde\xd9\xf3\xf4\xfd\xfd\xfd||}\x82\x81\x81\xfa\xfd\xfe\xf2\xfb\xfb\xf1\xf1\xf1\xc1\xc0\xc1\xe6\xe6\xe6\x8c\x8c\x8d\xe4\xf6\xf7\xb3\xe7\xe8\xed\xfa\xfa\xe2\xe2\xe2\xf8\xf8\xf8\xe9\xf8\xf8\xda\xda\xdattu@\xc3\xc6\x86\xd9\xda\xcc\xef\xf0\xa5\xa5\xa5\xac\xac\xac\xf4\xf4\xf4\xc8\xed\xee&lt;\xc1\xc4\xf6\xf6\xf6\xf6\xfc\xfd\xee\xee\xeeTTU\xe4\xe4\xe4aabXY[\xd3\xf1\xf2l\xd1\xd3\xac\xe5\xe6I\xc6\xc8EEF\xa6\xe3\xe4\x98\xde\xe0\x99\x99\x99\xec\xec\xec\xd4\xf1\xf2\xfc\xfe\xfe\xe2\xf6\xf6Q\xc8\xca\xa0\xe1\xe2}\xd6\xd8\xc0\xeb\xechhiM\xc7\xc9\x85\x85\x86\xd4\xd4\xd4g\xcf\xd1]]]LHIz\xd5\xd7\xd2\xd2\xd2\xb6\xe8\xe9lmo\xd8\xd8\xd8\x91\x91\x91\xb2\xb2\xb2\xa0\xa0\xa0\xb8\xe8\xe9HHIq\xd2\xd49\xc0\xc3\x80\xd7\xd9QQR\x94\x94\x94\xe0\xe0\xe0E\xc4\xc7\xd0\xd0\xd0zzz\xc8\xc8\xc8\xe8\xe8\xe8\xd6\xd6\xd6\xc5\xed\xee\xb0\xb0\xb0\xde\xf4\xf5t\xd3\xd5\xca\xca\xca&gt;:;\x8b\x8b\x8bqqr\x88\x88\x88%!"0,-\xae\xae\xaeurs\xa2\xa2\xa2\x96\x96\x96\x9c\xe0\xe1`\xcd\xcf^\xcc\xcf\x8f\x8e\x8e7\xc0\xc2-**U\xc9\xcc\xbc\xea\xeb512\xa9\xe4\xe5\xf0\xfa\xfah\xcf\xd2d\xce\xd0\xe6\xf7\xf7\xc2\xec\xedgde5\xbf\xc2nnn}z{EABffgb\xcd\xd0#\x1f A&gt;?bccZZ[vvw845QMN\x8a\x88\x88\\YZYVV\'#$xuv\x9b\x9b\x9cAAB\xb0\xe6\xe7\x89\x89\x89\xcf\xf0\xf0ljj`]]ebb\x95\x93\x93\x7f\x7f\x80IFF\xc8\xc7\xc7\xcf\xcf\xd0\xf3\xf3\xf3ddeXXY\xac\xab\xabBBC\xd6\xd5\xd5\xb7\xb7\xb7KKL\xfe\xfe\xfe\xc3\xc3\xc4\xf2\xf2\xf2\xdb\xf4\xf4CCDGGHkkl6\xbf\xc2[[\\NNOSST;\xc1\xc4\xaf\xaf\xb0C\xc4\xc6\xbb\xbb\xbc\x93\x93\x94sst\x83\x83\x84{{|llm\xf4\xfb\xfcWWWjghoopKGH3/0+\'(v\xd4\xd6___\x8e\x8e\x8f\xe3\xe3\xe3\xc9\xc9\xc9\x88\x86\x86\xd7\xf2\xf3ggh\x87\x87\x88\xdf\xdf\xdf\x80~~\xe9\xe9\xe9\xa7\xa7\xa8\xa3\xa3\xa4T\xc9\xcb\xdb\xdb\xdb\xfb\xfb\xfbvst\xa1\xa1\xa2G\xc5\xc8\xa8\xe3\xe5eef\x97\x97\x97\xd0\xcf\xcf\xbf\xeb\xec\xbf\xbf\xbf\xb5\xb3\xb4\xbd\xbb\xbcURS:78pmn\x9d\x9b\x9b\xd3\xd3\xd3\xaa\xa8\xa8\x96\x94\x94\xb0\xaf\xafc`a\xcc\xcb\xcbFCD\x98\x96\x97\x9f\x9e\x9fwxyZWX\x85\x83\x84\x91\x8f\x8f~|}\xa4\xa2\xa2\\\xcb\xce\x95\x95\x96\xe7\xe7\xe7olm\xca\xc9\xc9\xca\xc9\xcaNKL\xb8\xb7\xb7nkl\xc4\xc4\xc4hef\xa1\x9f\xa0C@@rop\xaf\xad\xae\xf5\xf5\xf5\xed\xed\xedVST\xa3\xa1\xa1\xff\xff\xff'], 'Mask': [255, 255], 'Subtype': /'Image', 'Height': 207, 'Filter': /'FlateDecode', 'Type': /'XObject', 'DecodeParms': {'Columns': 936, 'Colors': 1, 'Predictor': 15, 'BitsPerComponent': 8}, 'Width': 936, 'Length': 10027, 'BitsPerComponent': 8}&gt;</msg>
+<msg timestamp="20220720 12:42:54.657" level="INFO">Processing xobj: &lt;PDFStream(6): raw=3619, {'Subtype': /'Form', 'Filter': /'FlateDecode', 'Type': /'XObject', 'Matrix': [1, 0, 0, 1, 0, 0], 'FormType': 1, 'Resources': {'ProcSet': [/'PDF', /'Text', /'ImageB', /'ImageC', /'ImageI']}, 'BBox': [0, 0, 199, 199], 'Length': 3618}&gt;</msg>
+<msg timestamp="20220720 12:42:54.658" level="INFO">render_contents: resources={'ProcSet': [/'PDF', /'Text', /'ImageB', /'ImageC', /'ImageI']}, streams=[&lt;PDFStream(6): raw=3619, {'Subtype': /'Form', 'Filter': /'FlateDecode', 'Type': /'XObject', 'Matrix': [1, 0, 0, 1, 0, 0], 'FormType': 1, 'Resources': {'ProcSet': [/'PDF', /'Text', /'ImageB', /'ImageC', /'ImageI']}, 'BBox': [0, 0, 199, 199], 'Length': 3618}&gt;], ctm=(0.21608, 0.0, 0.0, 0.21608, 549.0, 647.0)</msg>
+<msg timestamp="20220720 12:42:54.759" level="INFO">Processing xobj: &lt;PDFStream(7): raw=10, {'ColorSpace': [/'Indexed', /'DeviceRGB', 255, b'\x00\x00\x00\x80\x00\x00\x00\x80\x00\x80\x80\x00\x00\x00\x80\x80\x00\x80\x00\x80\x80\x80\x80\x80\xfc\x04\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xc0\xc0\xc0\xff\x00\x00\x00\xff\x00\xff\xff\x00\x00\x00\xff\xff\x00\xff\x00\xff\xff\xff\xff\xff'], 'Mask': [8, 8], 'Subtype': /'Image', 'Height': 1, 'Filter': /'FlateDecode', 'Type': /'XObject', 'Width': 1, 'Length': 9, 'BitsPerComponent': 8}&gt;</msg>
+<msg timestamp="20220720 12:42:54.921" level="INFO">${pdf_data} = MOLECULAR PATHOLOGY REPORT
+
+FACILITY INFORMATION
+Facility Name: Facility Demo, LLC.
+Provider Name:
+NPI:
+1000000002
+Address: 1500  Interstate 35W
+Denton, TX 76207
+Phone:
+
+4325597041
+
+PROVIDER DEMONSTRA...</msg>
+<status status="PASS" starttime="20220720 12:42:54.590" endtime="20220720 12:42:54.921"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${pdf_data}" is Displayed</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:54.923" level="INFO">"MOLECULAR PATHOLOGY REPORT
+
+FACILITY INFORMATION
+Facility Name: Facility Demo, LLC.
+Provider Name:
+NPI:
+1000000002
+Address: 1500  Interstate 35W
+Denton, TX 76207
+Phone:
+
+4325597041
+
+PROVIDER DEMONSTRATION M.D
+
+PATIENT INFORMATION
+Name:
+HTRXTEST, Emily
+DOB: 12/25/1996
+Gender:
+Female
+Address:
+1234 Avenue A
+Denton, TX 76201, Denton, US
+Phone: 1234567890
+Race:
+Ethnicity: Declined
+
+Asian
+
+Page 1 of 1
+CLIA# 45D2009077
+1500 Interstate 35W
+ Denton, TX 76207
+Clinical Expert Line: 940-383-2223
+
+Scan  QR  Code  for
+ FDA-
+required  Patient  and  Provider
+Supplemental  Information.
+
+272481
+
+SPECIMEN INFORMATION
+Lab Accession Number:
+Date Collected: 07/19/2022
+Date Received by Lab: 07/19/2022
+Date Reported:
+Sample Type: Respiratory
+Area of Interest: NASAL SWAB
+Cross Reference #:
+
+Respiratory Pathogens Pathogens Detected
+
+Results
+
+Copies/mL*
+
+Microbial Load*
+*Approximate copies of target
+nucleic acid per mL
+(Low: &lt;100,000;
+Moderate:100,000-3.9 Million;
+High: &gt;3.9Million)
+
+Viral Pathogens
+COVID-19 Coronavirus (SARS-CoV-2)
+
+Comments:
+
+Qualizeal Testing
+
+TESTED ASSAY RESULTS
+
+**Pending**
+
+All tested microbe-related and resistance gene results (see below) are NOT DETECTED (NEGATIVE), unless indicated as DETECTED (POSITIVE), in above
+Detected Results Summary section.
+
+COVID Rapid
+
+Analyzed by:
+
+COVID-19 Coronavirus (SARS-CoV-2)
+
+Date:
+
+Real-Time polymerase chain reaction (TaqMan qPCR) was utilized for detection. Microbial sensitivity testing is not performed at this lab. Testing performed
+by AIT Laboratories (a HealthTrackRx Company; 1500 Interstate 35W, Denton TX 76207; CLIA# 45D2009077). This test was developed and its performance
+characteristics determined by American Institute of Toxicology, Inc. It has not been cleared or approved by the FDA. However, such approval/clearance is not
+required, as the laboratory is regulated and qualified under CLIA to perform high-complexity testing. This test is used for clinical purposes, and should not be
+regarded as investigational or for research.
+**National Infectious Disease Consensus Data
+***Potentially effective oral antibiotics, based on presence of detected microbes, antimicrobial resistance genes, and national antimicrobial sensitivity data
+(see Summary Antibiogram).
+
+" is Displayed</msg>
+<status status="PASS" starttime="20220720 12:42:54.922" endtime="20220720 12:42:54.923"/>
+</kw>
+<kw name="Verify Pdf Data and Remove Pdf File" library="General">
+<arg>${pdf_data}</arg>
+<arg>${testdata}[comment]</arg>
+<arg>${file_path}[0]</arg>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${pdf_data}</arg>
+<arg>${application_data_to_verify}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220720 12:42:54.925" endtime="20220720 12:42:54.925"/>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<arg>${file_path}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220720 12:42:54.927" level="INFO" html="true">Removed file '&lt;a href="file://D:\Healthtrackrx-auto-tests\Downloads\Emily_HTRXTEST_Pending_RHTRX369194_62d7aac953dad.pdf"&gt;D:\Healthtrackrx-auto-tests\Downloads\Emily_HTRXTEST_Pending_RHTRX369194_62d7aac953dad.pdf&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220720 12:42:54.926" endtime="20220720 12:42:54.927"/>
+</kw>
+<kw name="Wait Until Time" library="CustomLibrary">
+<arg>${MINI_WAIT}</arg>
+<status status="PASS" starttime="20220720 12:42:54.928" endtime="20220720 12:42:56.935"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>"${pdf_data}" contains value - "${application_data_to_verify}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:56.938" level="INFO">"MOLECULAR PATHOLOGY REPORT
+
+FACILITY INFORMATION
+Facility Name: Facility Demo, LLC.
+Provider Name:
+NPI:
+1000000002
+Address: 1500  Interstate 35W
+Denton, TX 76207
+Phone:
+
+4325597041
+
+PROVIDER DEMONSTRATION M.D
+
+PATIENT INFORMATION
+Name:
+HTRXTEST, Emily
+DOB: 12/25/1996
+Gender:
+Female
+Address:
+1234 Avenue A
+Denton, TX 76201, Denton, US
+Phone: 1234567890
+Race:
+Ethnicity: Declined
+
+Asian
+
+Page 1 of 1
+CLIA# 45D2009077
+1500 Interstate 35W
+ Denton, TX 76207
+Clinical Expert Line: 940-383-2223
+
+Scan  QR  Code  for
+ FDA-
+required  Patient  and  Provider
+Supplemental  Information.
+
+272481
+
+SPECIMEN INFORMATION
+Lab Accession Number:
+Date Collected: 07/19/2022
+Date Received by Lab: 07/19/2022
+Date Reported:
+Sample Type: Respiratory
+Area of Interest: NASAL SWAB
+Cross Reference #:
+
+Respiratory Pathogens Pathogens Detected
+
+Results
+
+Copies/mL*
+
+Microbial Load*
+*Approximate copies of target
+nucleic acid per mL
+(Low: &lt;100,000;
+Moderate:100,000-3.9 Million;
+High: &gt;3.9Million)
+
+Viral Pathogens
+COVID-19 Coronavirus (SARS-CoV-2)
+
+Comments:
+
+Qualizeal Testing
+
+TESTED ASSAY RESULTS
+
+**Pending**
+
+All tested microbe-related and resistance gene results (see below) are NOT DETECTED (NEGATIVE), unless indicated as DETECTED (POSITIVE), in above
+Detected Results Summary section.
+
+COVID Rapid
+
+Analyzed by:
+
+COVID-19 Coronavirus (SARS-CoV-2)
+
+Date:
+
+Real-Time polymerase chain reaction (TaqMan qPCR) was utilized for detection. Microbial sensitivity testing is not performed at this lab. Testing performed
+by AIT Laboratories (a HealthTrackRx Company; 1500 Interstate 35W, Denton TX 76207; CLIA# 45D2009077). This test was developed and its performance
+characteristics determined by American Institute of Toxicology, Inc. It has not been cleared or approved by the FDA. However, such approval/clearance is not
+required, as the laboratory is regulated and qualified under CLIA to perform high-complexity testing. This test is used for clinical purposes, and should not be
+regarded as investigational or for research.
+**National Infectious Disease Consensus Data
+***Potentially effective oral antibiotics, based on presence of detected microbes, antimicrobial resistance genes, and national antimicrobial sensitivity data
+(see Summary Antibiogram).
+
+" contains value - "Qualizeal Testing"</msg>
+<status status="PASS" starttime="20220720 12:42:56.935" endtime="20220720 12:42:56.939"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:54.923" endtime="20220720 12:42:56.939"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Verified "Print Preview" Data Displayed in New Tab</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:56.941" level="INFO">Verified "Print Preview" Data Displayed in New Tab</msg>
+<status status="PASS" starttime="20220720 12:42:56.940" endtime="20220720 12:42:56.941"/>
+</kw>
+<kw name="Logout From Healthtrack Application" library="common">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${button.homepage.log_out}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Log out button is not visible after waiting ${LONG_WAIT} seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220720 12:42:56.942" endtime="20220720 12:42:56.970"/>
+</kw>
+<kw name="Javascript Click" library="CustomLibrary">
+<arg>${button.homepage.log_out}</arg>
+<status status="PASS" starttime="20220720 12:42:56.971" endtime="20220720 12:42:59.305"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${button.homepage.log_out}</arg>
+<arg>${LONG_WAIT}</arg>
+<arg>Log out button is not visible after waiting ${LONG_WAIT} seconds</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20220720 12:42:59.306" endtime="20220720 12:42:59.313"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:56.941" endtime="20220720 12:42:59.314"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>LoggedOut from HealthTrackRX Application</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220720 12:42:59.316" level="INFO">LoggedOut from HealthTrackRX Application</msg>
+<status status="PASS" starttime="20220720 12:42:59.314" endtime="20220720 12:42:59.317"/>
+</kw>
+<kw name="Take Screenshot" library="common" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220720 12:42:59.491" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Screenshots/selenium-screenshot-156.png"&gt;&lt;img src="../Screenshots/selenium-screenshot-156.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220720 12:42:59.320" endtime="20220720 12:42:59.491"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:59.318" endtime="20220720 12:42:59.492"/>
+</kw>
+<status status="PASS" starttime="20220720 12:42:04.029" endtime="20220720 12:42:59.493"/>
+</test>
+<status status="PASS" starttime="20220720 12:41:31.695" endtime="20220720 12:42:59.495"/>
+</suite>
+<status status="PASS" starttime="20220720 12:41:30.998" endtime="20220720 12:42:59.500"/>
+</suite>
+<status status="PASS" starttime="20220720 12:41:30.973" endtime="20220720 12:42:59.505"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Healthtrackrx-auto-tests">Healthtrackrx-auto-tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="KeywordTestcases">Healthtrackrx-auto-tests.KeywordTestcases</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1" name="Accesioning Suite">Healthtrackrx-auto-tests.KeywordTestcases.Accesioning Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
